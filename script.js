@@ -1,62 +1,12 @@
-// create a function that will randomly choose between 3 choices (rock, paper, scissors)
-
-let randNumber = Math.floor(Math.random() * 3);
-
-function getComputerChoice(choice){
-    if(choice === 0){
-        console.log("Rock")
-    } else if(choice === 1){
-        console.log("Paper")
-    } else {
-        console.log("Scissors")
-    }
-
-        return choice
-}
-
-// console.log(getComputerChoice(randNumber));  // why is this returning 'undefined' / a number ?
-
-
-let win;
-let lose;
-let draw;
-
-function playRound(playerSelection, computerSelection) {
-
-  
-        if(playerSelection && computerSelection === 0){
-            return draw = "It's a draw ! Rock is equal to Rock";
-        } else if(playerSelection && computerSelection === 1){
-            return lose = "You Lose! Paper beats Rock";
-        } else {
-            return win = "You won ! Rock beats Scissors";
-        }
-  }
-
-  const playerSelection = "rock"; // variable needs to be case insensitive
-  const computerSelection = getComputerChoice(randNumber);
-  const result = playRound(playerSelection, computerSelection)
-  console.log(result);
-
-
-
 // pseudo code : Create a function to run the game, while keeping track of the score and calling
 // a winner a the end of the 5th round
 
-
-// needs user's input - OK
-// prompting this 5 times - OK
-// register point (function??)
-        // define a winner and distribute point accordingly ??????
-// keeping track of the score / round
-// calling a winner at the end
-
-function game(fetchResult){
-    playerScore = 0;
-    computerScore = 0;
+/* function game(fetchResult){
+    let playerScore = 0;
+    let computerScore = 0;
 
     for (let i = 0; i < 5; i++) {
-        //console.log(prompt("Rock, Paper or Scissors ?"))
+        //prompt("Rock, Paper, or Scissors?");
         if(fetchResult == win){
             playerScore++;
             console.log(playerScore + " points for the player");
@@ -69,4 +19,51 @@ function game(fetchResult){
      }
 }
 
-console.log(game(result));
+*/
+
+//game(playRound(playerSelection, computerSelection));
+
+
+// get a random choice
+
+choices = ["rock", "paper", "scissors"]
+
+randomChoice = choices[Math.floor(Math.random() * choices.length)];
+
+function getComputerChoice(choice){
+    return choice;
+}
+
+console.log(getComputerChoice(randomChoice));
+
+
+// Play a round
+
+function playRound(playerSelection, computerSelection) {
+  if( playerSelection === "rock" && computerSelection === "paper" ||
+      playerSelection === "paper" && computerSelection === "scissors" ||
+      playerSelection === "scissors" && computerSelection === "rock"
+  ) {
+      return `You Lose! ${computerSelection} beats ${playerSelection}`
+
+  } else if ( playerSelection === "paper" && computerSelection === "rock" ||
+              playerSelection === "scissors" && computerSelection === "paper" ||
+              playerSelection === "rock" && computerSelection === "scissors" 
+  ) {
+      return `You Win! ${playerSelection} beats ${computerSelection}`
+
+  } else
+      return `It's a Draw ! ${playerSelection} is equal to ${computerSelection}`
+} 
+
+
+const playerSelection = prompt("Rock, Paper or Scissors ?");
+const computerSelection = getComputerChoice(randomChoice);
+console.log(playRound(playerSelection, computerSelection));
+
+// 1 Generate computer's choice - OK
+// 2 generae player's choice - OK
+// 3 Generate a round - OK
+// 4 Generate multiple round
+// 5 Keep track of the result
+// 6 Call a winner
