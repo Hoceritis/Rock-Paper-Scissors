@@ -1,7 +1,9 @@
 // pseudo code : Create a function to run the game, while keeping track of the score and calling
 // a winner a the end of the 5th round
 
-// get a random choice
+
+// créer une function 'getChoice' = tu l'appelle
+// puis tu la rapelle à la fin de ta boucle
 
 choices = ["rock", "paper", "scissors"]
 
@@ -11,13 +13,10 @@ function getComputerChoice(choice){
     return choice;
 }
 
-console.log(getComputerChoice(randomChoice));
-
 const win = 1;
 const lose = -1;
 const draw = 0;
-let playerSelection;
-const computerSelection = getComputerChoice(randomChoice);
+let computerSelection = getComputerChoice(randomChoice);
 
 // Play a round
 
@@ -43,12 +42,15 @@ function playRound(playerSelection, computerSelection) {
 
 function game(){
 
+  console.log(getComputerChoice(randomChoice));
   let playerScore = 0;
   let computerScore = 0;
 
   for (let i = 0; i < 5; i++) {
+
     const playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase()
     const result = playRound(playerSelection, computerSelection);
+
     if(result == win){
       ++playerScore
       console.log(playerScore + " points for the player")
@@ -58,8 +60,11 @@ function game(){
     } else {
       console.log("It's a draw, no points given");
     }
+
+    computerSelection = choices[Math.floor(Math.random() * choices.length)];
+    console.log(computerSelection)
  } 
-   console.log(playerScore, computerScore);
+   console.log(playerScore + " points for the player", computerScore + " points for the computer");
 }
 
 game();
@@ -67,6 +72,7 @@ game();
 // 1 Generate computer's choice - OK
 // 2 generae player's choice - OK
 // 3 Generate a round - OK
-// 4 Generate multiple round - OK
-// 5 Keep track of the result
-// 6 Call a winner
+// 4 Generate multiple round
+// 5 Limit the input type
+// 6 Keep track of the result
+// 7 Call a winner
