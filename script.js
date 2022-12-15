@@ -5,7 +5,18 @@
 // créer une function 'getChoice' = tu l'appelle
 // puis tu la rapelle à la fin de ta boucle
 
+// create a function that iterate through an array of choices
+
 choices = ["rock", "paper", "scissors"]
+
+function playerInput(choices) {
+  for(i = 0 ;i < choices.length ; i++){
+    //console.log(choices[i])
+  }
+  return choices[i];
+}
+
+playerInput(choices);
 
 randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
@@ -48,7 +59,7 @@ function game(){
 
   for (let i = 0; i < 5; i++) {
 
-    const playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase()
+    let playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase();
     const result = playRound(playerSelection, computerSelection);
 
     if(result == win){
@@ -60,11 +71,18 @@ function game(){
     } else {
       console.log("It's a draw, no points given");
     }
-
+    
     computerSelection = choices[Math.floor(Math.random() * choices.length)];
     console.log(computerSelection)
+    
  } 
-   console.log(playerScore + " points for the player", computerScore + " points for the computer");
+    if(playerScore > computerScore){
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " YOU WON !");
+    } else if(computerScore > playerScore){
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " YOU LOSE !");
+    } else {
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " IT'S A TIE !");
+    }
 }
 
 game();
@@ -72,7 +90,7 @@ game();
 // 1 Generate computer's choice - OK
 // 2 generae player's choice - OK
 // 3 Generate a round - OK
-// 4 Generate multiple round
-// 5 Limit the input type
-// 6 Keep track of the result
-// 7 Call a winner
+// 4 Generate multiple round - OK
+// 5 Limit the input type ???
+// 6 Keep track of the result - OK
+// 7 Call a winner - OK
