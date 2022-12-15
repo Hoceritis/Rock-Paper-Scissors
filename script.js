@@ -71,17 +71,17 @@ function game(){
     } else {
       console.log("It's a draw, no points given");
     }
-    
+   
     computerSelection = choices[Math.floor(Math.random() * choices.length)];
     console.log(computerSelection)
-    
+  
  } 
     if(playerScore > computerScore){
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " YOU WON !");
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- YOU WON !");
     } else if(computerScore > playerScore){
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " YOU LOSE !");
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- YOU LOSE !");
     } else {
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " IT'S A TIE !");
+      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- IT'S A TIE !");
     }
 }
 
