@@ -1,14 +1,34 @@
 //create the main div
 
-const div = document.createElement('div');
-div.setAttribute('id', 'main-div');
+let div = document.createElement('div');
+let mainDiv = div.setAttribute('id', 'main-div');
 
 // append the div to body
+
 document.body.appendChild(div);
 const node = document.createTextNode("This is a new paragraph.");
 div.appendChild(node)
 
+// create 3 buttons
 
+const rock = document.createElement('BUTTON')
+rock.setAttribute('div', 'rock')
+
+const papper = document.createElement('BUTTON')
+papper.setAttribute('div', 'paper')
+
+const scissors = document.createElement('BUTTON')
+scissors.setAttribute('div', 'scissors')
+
+// add text into the button
+
+rock.textContent = "Rock"
+papper.textContent = "paper"
+scissors.textContent = "scissors"
+
+// append the buttons to div
+
+div.append(rock, papper, scissors)
 
 choices = ["rock", "paper", "scissors"]
 
@@ -89,7 +109,7 @@ function game(){
     }
 }
 
-game();
+//game();
 
 // 1 Generate computer's choice - OK
 // 2 generae player's choice - OK
