@@ -1,11 +1,14 @@
-// pseudo code : Create a function to run the game, while keeping track of the score and calling
-// a winner a the end of the 5th round
+//create the main div
+
+const div = document.createElement('div');
+div.setAttribute('id', 'main-div');
+
+// append the div to body
+document.body.appendChild(div);
+const node = document.createTextNode("This is a new paragraph.");
+div.appendChild(node)
 
 
-// créer une function 'getChoice' = tu l'appelle
-// puis tu la rapelle à la fin de ta boucle
-
-// create a function that iterate through an array of choices
 
 choices = ["rock", "paper", "scissors"]
 
@@ -72,6 +75,7 @@ function game(){
       console.log("It's a draw, no points given");
     }
    
+    // pourquoi ne je peux pas appeler la fonction  getComputerChoice(randomChoice) ? Pour avoir un nouveau choix
     computerSelection = choices[Math.floor(Math.random() * choices.length)];
     console.log(computerSelection)
   
@@ -91,6 +95,5 @@ game();
 // 2 generae player's choice - OK
 // 3 Generate a round - OK
 // 4 Generate multiple round - OK
-// 5 Limit the input type ???
 // 6 Keep track of the result - OK
 // 7 Call a winner - OK
