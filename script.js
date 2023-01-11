@@ -1,3 +1,7 @@
+// mettre les event listener en fin de doc ?
+// + Pointer vers le choix du lixk, plutot que l'user input"
+
+
 //create the main div
 
 let div = document.createElement('div');
@@ -6,40 +10,31 @@ let mainDiv = div.setAttribute('id', 'main-div');
 // append the div to body
 
 document.body.appendChild(div);
-const node = document.createTextNode("This is a new paragraph.");
-div.appendChild(node)
 
 // create 3 buttons
 
 const rock = document.createElement('BUTTON')
-rock.setAttribute('div', 'rock')
+rock.setAttribute('value', 'rock')
 
-const papper = document.createElement('BUTTON')
-papper.setAttribute('div', 'paper')
+const paper = document.createElement('BUTTON')
+paper.setAttribute('value', 'paper')
 
 const scissors = document.createElement('BUTTON')
-scissors.setAttribute('div', 'scissors')
+scissors.setAttribute('value', 'scissors')
 
 // add text into the button
 
-rock.textContent = "Rock"
-papper.textContent = "paper"
+rock.textContent = "rock"
+paper.textContent = "paper"
 scissors.textContent = "scissors"
 
-// append the buttons to div
+// append the buttons to main div
 
-div.append(rock, papper, scissors)
+div.append(rock, paper, scissors)
 
-choices = ["rock", "paper", "scissors"]
+// game's logic
 
-function playerInput(choices) {
-  for(i = 0 ;i < choices.length ; i++){
-    //console.log(choices[i])
-  }
-  return choices[i];
-}
-
-playerInput(choices);
+const choices = ["rock", "paper", "scissors"]
 
 randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
@@ -82,8 +77,10 @@ function game(){
 
   for (let i = 0; i < 5; i++) {
 
+    // take the player input via a click instead of a prompt
+    //let playerSelection = playerSelection(choices);
     let playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase();
-    const result = playRound(playerSelection, computerSelection);
+    let result = playRound(playerSelection, computerSelection);
 
     if(result == win){
       ++playerScore
@@ -95,7 +92,7 @@ function game(){
       console.log("It's a draw, no points given");
     }
    
-    // pourquoi ne je peux pas appeler la fonction  getComputerChoice(randomChoice) ? Pour avoir un nouveau choix
+    // why can I not call the function getComputerChoice(randomChoice), instead of updating the variable ?
     computerSelection = choices[Math.floor(Math.random() * choices.length)];
     console.log(computerSelection)
   
@@ -109,11 +106,16 @@ function game(){
     }
 }
 
-//game();
+// add event listener to buttons
 
-// 1 Generate computer's choice - OK
-// 2 generae player's choice - OK
-// 3 Generate a round - OK
-// 4 Generate multiple round - OK
-// 6 Keep track of the result - OK
-// 7 Call a winner - OK
+// create a function that iterate through an array of choices
+// return the choice - via click
+
+const elements = [rock, paper, scissors];
+elements.forEach(el => el.addEventListener('click', playerChoice));
+
+function playerChoice(event) {
+  let clickedElement = event.target;
+  let value = clickedElement.value;
+  console.log(value)
+}
