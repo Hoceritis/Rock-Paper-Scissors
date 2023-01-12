@@ -7,11 +7,9 @@
 let div = document.createElement('div');
 let mainDiv = div.setAttribute('id', 'main-div');
 
-// append the div to body
-
 document.body.appendChild(div);
 
-// create 3 buttons
+// create 3 buttons for choices
 
 const rock = document.createElement('BUTTON')
 rock.setAttribute('value', 'rock')
@@ -22,15 +20,18 @@ paper.setAttribute('value', 'paper')
 const scissors = document.createElement('BUTTON')
 scissors.setAttribute('value', 'scissors')
 
-// add text into the button
-
 rock.textContent = "rock"
 paper.textContent = "paper"
 scissors.textContent = "scissors"
 
-// append the buttons to main div
-
 div.append(rock, paper, scissors)
+
+// create the 'start' game button
+
+const start = document.createElement('button')
+start.setAttribute('value', 'start')
+start.textContent = "start"
+div.append(start)
 
 // game's logic
 
@@ -77,9 +78,8 @@ function game(){
 
   for (let i = 0; i < 5; i++) {
 
-    // take the player input via a click instead of a prompt
-    //let playerSelection = playerSelection(choices);
-    let playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase();
+    //let playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase();
+    let playerSelection = playerChoice() 
     let result = playRound(playerSelection, computerSelection);
 
     if(result == win){
@@ -106,16 +106,19 @@ function game(){
     }
 }
 
-// add event listener to buttons
 
-// create a function that iterate through an array of choices
-// return the choice - via click
+// add event listener to buttons
 
 const elements = [rock, paper, scissors];
 elements.forEach(el => el.addEventListener('click', playerChoice));
 
-function playerChoice(event) {
-  let clickedElement = event.target;
+
+start.addEventListener('click', game);
+
+
+function playerChoice(choice) {
+  let clickedElement = choice.target;
   let value = clickedElement.value;
   console.log(value)
+  return value
 }
