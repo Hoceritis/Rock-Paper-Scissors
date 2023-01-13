@@ -47,6 +47,8 @@ const win = 1;
 const lose = -1;
 const draw = 0;
 let computerSelection = getComputerChoice(randomChoice);
+let playerScore = [];
+let computerScore = [];
 
 // Play a round
 
@@ -72,53 +74,57 @@ function playRound(playerSelection, computerSelection) {
 
 function game(){
 
-  console.log(getComputerChoice(randomChoice));
-  let playerScore = 0;
-  let computerScore = 0;
+  console.log(getComputerChoice('This is the first computer choice : ' + randomChoice));
 
-  for (let i = 0; i < 5; i++) {
-
-    //let playerSelection = prompt("Rock, Paper or Scissors ?").toLowerCase();
-    let playerSelection = playerChoice() 
+    let playerSelection = playerChoice(event);
     let result = playRound(playerSelection, computerSelection);
 
     if(result == win){
-      ++playerScore
-      console.log(playerScore + " points for the player")
+      playerScore.push(1)
+      console.log(playerScore.length + " points for the player")
     } else if(result == lose){
-      ++computerScore
-      console.log(computerScore + " points for the computer");
+      computerScore.push(1)
+      console.log(computerScore.length + " points for the computer");
     } else {
       console.log("It's a draw, no points given");
     }
-   
-    // why can I not call the function getComputerChoice(randomChoice), instead of updating the variable ?
-    computerSelection = choices[Math.floor(Math.random() * choices.length)];
-    console.log(computerSelection)
-  
- } 
-    if(playerScore > computerScore){
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- YOU WON !");
-    } else if(computerScore > playerScore){
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- YOU LOSE !");
-    } else {
-      console.log(playerScore + " points for the player", computerScore + " points for the computer" + " -- IT'S A TIE !");
-    }
+
 }
 
 
 // add event listener to buttons
 
-const elements = [rock, paper, scissors];
-elements.forEach(el => el.addEventListener('click', playerChoice));
-
+/* elements.forEach(el => el.addEventListener('click', playerChoice));
 
 start.addEventListener('click', game);
+ */
 
+const elements = [rock, paper, scissors];
 
-function playerChoice(choice) {
-  let clickedElement = choice.target;
+function playerChoice(event) {
+  let clickedElement = event.target;
   let value = clickedElement.value;
-  console.log(value)
+  console.log('This is the player choice :' + value)
   return value
 }
+
+function winner(playerScore, computerScore){
+  if(playerScore.length == 5){
+    console.log('You won !')
+  } else if (computerScore.length == 5){
+    console.log('You lose')
+  }
+  playerScore = [];
+  computerScore = [];
+}
+
+elements.forEach(el => el.addEventListener('click', function(event) {
+  // 1. get player's choice
+  playerChoice(event);
+  // 2. get comp's choice
+  getComputerChoice(randomChoice);
+  // 3. run a round
+  game();
+  // 4. check for winner
+  winner(playerScore, computerScore);
+}));
