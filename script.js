@@ -37,16 +37,18 @@ div.append(start)
 
 const choices = ["rock", "paper", "scissors"]
 
-randomChoice = choices[Math.floor(Math.random() * choices.length)];
-
 const win = 1;
 const lose = -1;
 const draw = 0;
-let computerSelection = getComputerChoice(randomChoice);
 let playerScore = [];
 let computerScore = [];
+const elements = [rock, paper, scissors];
 
-// Play a round
+// functions
+
+function getComputerChoice(choice){
+  return choice[Math.floor(Math.random() * choices.length)];  
+}
 
 function playRound(playerSelection, computerSelection) {
   if( playerSelection === "rock" && computerSelection === "paper" ||
@@ -70,9 +72,10 @@ function playRound(playerSelection, computerSelection) {
 
 function game(){
 
-  console.log(getComputerChoice('This is the first computer choice : ' + randomChoice));
-
     let playerSelection = playerChoice(event);
+    let computerSelection = getComputerChoice(choices);
+    console.log('computer choice : ' + computerSelection);
+
     let result = playRound(playerSelection, computerSelection);
 
     if(result == win){
@@ -85,12 +88,6 @@ function game(){
       console.log("It's a draw, no points given");
     }
 }
-
-function getComputerChoice(choice){
-  return choice;
-}
-
-const elements = [rock, paper, scissors];
 
 function playerChoice(event) {
   let clickedElement = event.target;
@@ -115,7 +112,7 @@ elements.forEach(el => el.addEventListener('click', function(event) {
   // 1. get player's choice
   playerChoice(event);
   // 2. get comp's choice
-  getComputerChoice(randomChoice);
+  getComputerChoice(choices);
   // 3. run a round
   game();
   // 4. check for winner
