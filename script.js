@@ -39,10 +39,6 @@ const choices = ["rock", "paper", "scissors"]
 
 randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
-function getComputerChoice(choice){
-    return choice;
-}
-
 const win = 1;
 const lose = -1;
 const draw = 0;
@@ -88,16 +84,11 @@ function game(){
     } else {
       console.log("It's a draw, no points given");
     }
-
 }
 
-
-// add event listener to buttons
-
-/* elements.forEach(el => el.addEventListener('click', playerChoice));
-
-start.addEventListener('click', game);
- */
+function getComputerChoice(choice){
+  return choice;
+}
 
 const elements = [rock, paper, scissors];
 
@@ -111,11 +102,13 @@ function playerChoice(event) {
 function winner(playerScore, computerScore){
   if(playerScore.length == 5){
     console.log('You won !')
+    playerScore.length = 0;
+    computerScore.length = 0;
   } else if (computerScore.length == 5){
     console.log('You lose')
+    playerScore.length = 0;
+    computerScore.length = 0;
   }
-  playerScore = [];
-  computerScore = [];
 }
 
 elements.forEach(el => el.addEventListener('click', function(event) {
