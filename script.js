@@ -72,18 +72,18 @@ function playRound(playerSelection, computerSelection) {
       playerSelection === "paper" && computerSelection === "scissors" ||
       playerSelection === "scissors" && computerSelection === "rock"
   ) {
-      console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+    message.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
       return lose;
 
   } else if ( playerSelection === "paper" && computerSelection === "rock" ||
               playerSelection === "scissors" && computerSelection === "paper" ||
               playerSelection === "rock" && computerSelection === "scissors" 
   ) {
-      console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    message.textContent =`You Win! ${playerSelection} beats ${computerSelection}`;
       return win;
 
   } else
-      console.log(`It's a Draw ! ${playerSelection} is equal to ${computerSelection}`);
+    message.textContent =`It's a Draw ! ${playerSelection} is equal to ${computerSelection}. No points given`;
       return draw;
 } 
 
@@ -98,16 +98,9 @@ function game(){
     if(result == win){
       playerScore.push(1)
       playerScoreDiv.textContent = playerScore.length
-      console.log(playerScore.length + " points for the player")
-      message.textContent = "You win this round"
     } else if(result == lose){
       computerScore.push(1)
-      console.log(computerScore.length + " points for the computer");
       computerScoreDiv.textContent = computerScore.length
-      message.textContent = "You lost this round"
-    } else {
-      console.log("It's a draw, no points given");
-      message.textContent = "It's a draw, no points given"
     }
 }
 
