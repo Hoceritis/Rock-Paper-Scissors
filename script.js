@@ -33,6 +33,7 @@ start.setAttribute('value', 'start')
 start.textContent = "start"
 div.append(start)
 
+
 // game's logic
 
 const choices = ["rock", "paper", "scissors"]
@@ -43,6 +44,17 @@ const draw = 0;
 let playerScore = [];
 let computerScore = [];
 const elements = [rock, paper, scissors];
+
+// create the divs to display the scores
+
+let playerScoreDiv = document.createElement('div')
+let computerScoreDiv = document.createElement('div')
+playerScoreDiv.setAttribute('id', 'playerScore')
+computerScoreDiv.setAttribute('id', 'computerScore')
+div.append(playerScoreDiv, computerScoreDiv)
+
+playerScoreDiv.textContent = 0
+computerScoreDiv.textContent = 0
 
 // functions
 
@@ -80,10 +92,12 @@ function game(){
 
     if(result == win){
       playerScore.push(1)
+      playerScoreDiv.textContent = playerScore.length
       console.log(playerScore.length + " points for the player")
     } else if(result == lose){
       computerScore.push(1)
       console.log(computerScore.length + " points for the computer");
+      computerScoreDiv.textContent = computerScore.length
     } else {
       console.log("It's a draw, no points given");
     }
@@ -97,15 +111,16 @@ function playerChoice(event) {
 }
 
 function winner(playerScore, computerScore){
-  if(playerScore.length == 5){
+  if(playerScore.length === 5){
     console.log('You won !')
     playerScore.length = 0;
     computerScore.length = 0;
-  } else if (computerScore.length == 5){
+  } else if (computerScore.length === 5){
     console.log('You lose')
     playerScore.length = 0;
     computerScore.length = 0;
   }
+
 }
 
 elements.forEach(el => el.addEventListener('click', function(event) {
@@ -118,3 +133,11 @@ elements.forEach(el => el.addEventListener('click', function(event) {
   // 4. check for winner
   winner(playerScore, computerScore);
 }));
+
+
+// Game's logic done
+
+
+// I need an interface for the player
+// create a visual representation of the score + final result
+// Two divs ith the scores being displayed
