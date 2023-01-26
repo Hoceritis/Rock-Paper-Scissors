@@ -33,6 +33,11 @@ start.setAttribute('value', 'start')
 start.textContent = "start"
 div.append(start)
 
+// create the messages div
+
+let message = document.createElement('div')
+message.setAttribute('id','message')
+div.append(message)
 
 // game's logic
 
@@ -94,12 +99,15 @@ function game(){
       playerScore.push(1)
       playerScoreDiv.textContent = playerScore.length
       console.log(playerScore.length + " points for the player")
+      message.textContent = "You win this round"
     } else if(result == lose){
       computerScore.push(1)
       console.log(computerScore.length + " points for the computer");
       computerScoreDiv.textContent = computerScore.length
+      message.textContent = "You lost this round"
     } else {
       console.log("It's a draw, no points given");
+      message.textContent = "It's a draw, no points given"
     }
 }
 
@@ -112,23 +120,20 @@ function playerChoice(event) {
 
 function winner(playerScore, computerScore){
   if(playerScore.length === 5){
-    console.log('You won !')
-    playerScore.length = 0;
-    computerScore.length = 0;
-    computerScoreDiv.textContent = computerScore.length
-    playerScoreDiv.textContent = playerScore.length
+    message.textContent = 'You won !'
+    resetScore()
+    
   } else if (computerScore.length === 5){
-    console.log('You lose')
-    playerScore.length = 0;
-    computerScore.length = 0;
-    computerScoreDiv.textContent = computerScore.length
-    playerScoreDiv.textContent = playerScore.length
+    message.textContent = 'You lose !'
+    resetScore()
   }
 }
 
 function resetScore(){
-  playerScore.length = 0;
-  computerScore.length = 0
+    playerScore.length = 0;
+    computerScore.length = 0;
+    computerScoreDiv.textContent = computerScore.length
+    playerScoreDiv.textContent = playerScore.length
 }
 
 
