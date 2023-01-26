@@ -115,13 +115,22 @@ function winner(playerScore, computerScore){
     console.log('You won !')
     playerScore.length = 0;
     computerScore.length = 0;
+    computerScoreDiv.textContent = computerScore.length
+    playerScoreDiv.textContent = playerScore.length
   } else if (computerScore.length === 5){
     console.log('You lose')
     playerScore.length = 0;
     computerScore.length = 0;
+    computerScoreDiv.textContent = computerScore.length
+    playerScoreDiv.textContent = playerScore.length
   }
-
 }
+
+function resetScore(){
+  playerScore.length = 0;
+  computerScore.length = 0
+}
+
 
 elements.forEach(el => el.addEventListener('click', function(event) {
   // 1. get player's choice
