@@ -12,20 +12,16 @@ document.body.appendChild(div);
 // create 3 buttons for choices
 
 const rock = document.createElement('img')
-rock.src = "https://icon-library.com/images/spock-icon/spock-icon-4.jpg"
 rock.setAttribute('value', 'rock')
+rock.src = "https://icon-library.com/images/spock-icon/spock-icon-4.jpg"
 
 const paper = document.createElement('img')
-paper.src = "https://icon-library.com/images/spock-icon/spock-icon-3.jpg"
 paper.setAttribute('value', 'paper')
+paper.src = "https://icon-library.com/images/spock-icon/spock-icon-3.jpg"
 
 const scissors = document.createElement('img')
-scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-5.jpg"
 scissors.setAttribute('value', 'scissors')
-
-rock.textContent = "rock"
-paper.textContent = "paper"
-scissors.textContent = "scissors"
+scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-5.jpg"
 
 div.append(rock, paper, scissors)
 
@@ -109,7 +105,7 @@ function game(){
 
 function playerChoice(event) {
   let clickedElement = event.target;
-  let value = clickedElement.value;
+  let value = clickedElement.getAttribute('value')
   console.log('This is the player choice :' + value)
   return value
 }
