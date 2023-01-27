@@ -9,7 +9,11 @@ let mainDiv = div.setAttribute('id', 'main-div');
 
 document.body.appendChild(div);
 
+// create sub div for buttons
 // create 3 buttons for choices
+
+let buttonDiv = document.createElement('div')
+buttonDiv.setAttribute('id', 'button-div')
 
 const rock = document.createElement('img')
 rock.setAttribute('value', 'rock')
@@ -23,14 +27,16 @@ const scissors = document.createElement('img')
 scissors.setAttribute('value', 'scissors')
 scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-5.jpg"
 
-div.append(rock, paper, scissors)
+
+div.append(buttonDiv)
+buttonDiv.append(rock, paper, scissors)
 
 // create the 'start' game button
 
-const start = document.createElement('button')
+/* const start = document.createElement('button')
 start.setAttribute('value', 'start')
 start.textContent = "start"
-div.append(start)
+div.append(start) */
 
 // create the messages div
 
@@ -51,11 +57,16 @@ const elements = [rock, paper, scissors];
 
 // create the divs to display the scores
 
+let scores = document.createElement('div')
+scores.setAttribute('id', 'scores')
+
 let playerScoreDiv = document.createElement('div')
 let computerScoreDiv = document.createElement('div')
 playerScoreDiv.setAttribute('id', 'playerScore')
 computerScoreDiv.setAttribute('id', 'computerScore')
-div.append(playerScoreDiv, computerScoreDiv)
+
+div.append(scores)
+scores.append(playerScoreDiv, computerScoreDiv)
 
 playerScoreDiv.textContent = 0
 computerScoreDiv.textContent = 0
