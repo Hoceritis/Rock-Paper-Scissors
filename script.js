@@ -11,13 +11,16 @@ document.body.appendChild(div);
 
 // create 3 buttons for choices
 
-const rock = document.createElement('BUTTON')
+const rock = document.createElement('img')
+rock.src = "https://icon-library.com/images/spock-icon/spock-icon-4.jpg"
 rock.setAttribute('value', 'rock')
 
-const paper = document.createElement('BUTTON')
+const paper = document.createElement('img')
+paper.src = "https://icon-library.com/images/spock-icon/spock-icon-3.jpg"
 paper.setAttribute('value', 'paper')
 
-const scissors = document.createElement('BUTTON')
+const scissors = document.createElement('img')
+scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-5.jpg"
 scissors.setAttribute('value', 'scissors')
 
 rock.textContent = "rock"
@@ -142,9 +145,7 @@ elements.forEach(el => el.addEventListener('click', function(event) {
 }));
 
 
-// Game's logic done
 
 
-// I need an interface for the player
-// create a visual representation of the score + final result
-// Two divs ith the scores being displayed
+// display final result ?
+// refactor the choices name ? (Capitalize the first letter ?)
