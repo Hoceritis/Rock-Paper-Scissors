@@ -31,13 +31,6 @@ scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-pa
 div.append(buttonDiv)
 buttonDiv.append(rock, paper, scissors)
 
-// create the 'start' game button
-
-/* const start = document.createElement('button')
-start.setAttribute('value', 'start')
-start.textContent = "start"
-div.append(start) */
-
 // create the messages div
 
 let message = document.createElement('div')
@@ -111,6 +104,7 @@ function game(){
     if(result == win){
       playerScore.push(1)
       playerScoreDiv.textContent = playerScore.length
+      winDisplay();
     } else if(result == lose){
       computerScore.push(1)
       computerScoreDiv.textContent = computerScore.length
@@ -141,6 +135,13 @@ function resetScore(){
     computerScoreDiv.textContent = computerScore.length
     playerScoreDiv.textContent = playerScore.length
 }
+
+function winDisplay(){
+    document.querySelector('#image').addEventListener('click', () => {
+    document.querySelector('#foo').classList.add('myClass');
+  }); 
+}
+
 
 
 elements.forEach(el => el.addEventListener('click', function(event) {

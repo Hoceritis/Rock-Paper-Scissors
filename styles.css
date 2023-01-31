@@ -1,13 +1,37 @@
 [value|="rock"] {
-    width: 50px;
+    width: 100px;
+    transition: all 0.2s ease-in-out;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+[value|="rock"]:hover {
+    box-shadow: 0px 0px 15px 0px #358798;
 }
 
 [value|="scissors"] {
-    width: 50px;
+    width: 100px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    margin-left: 10px;
 }
 
+[value|="scissors"]:hover {
+    box-shadow: 0px 0px 15px 0px #358798;
+}
+
+.winDisplay {
+    box-shadow: 0px 0px 15px 0px #32C131;
+  }
+
 [value|="paper"] {
-    width: 50px;
+    width: 100px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+
+[value|="paper"]:hover {
+    box-shadow: 0px 0px 15px 0px #358798;
 }
 
 #main-div {
@@ -19,6 +43,8 @@
 #button-div {
     order: 2;
     margin: 10px;
+    display: flex;
+    justify-content: space-around;
 }
 
 #message {
@@ -42,3 +68,4 @@
 #playerScore {
     margin-right: 10px;
 }
+
