@@ -17,14 +17,17 @@ buttonDiv.setAttribute('id', 'button-div')
 
 const rock = document.createElement('img')
 rock.setAttribute('value', 'rock')
+rock.setAttribute('id', 'rock')
 rock.src = "https://icon-library.com/images/spock-icon/spock-icon-4.jpg"
 
 const paper = document.createElement('img')
 paper.setAttribute('value', 'paper')
+paper.setAttribute('id', 'paper')
 paper.src = "https://icon-library.com/images/spock-icon/spock-icon-3.jpg"
 
 const scissors = document.createElement('img')
 scissors.setAttribute('value', 'scissors')
+scissors.setAttribute('id', 'scissors')
 scissors.src = "https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-5.jpg"
 
 
@@ -104,10 +107,13 @@ function game(){
     if(result == win){
       playerScore.push(1)
       playerScoreDiv.textContent = playerScore.length
-      winDisplay();
+      document.getElementById(playerSelection).classList.add('winDisplay');
+      setTimeout(function(){ document.getElementById(playerSelection).classList.remove('winDisplay')}, 1000);
     } else if(result == lose){
       computerScore.push(1)
       computerScoreDiv.textContent = computerScore.length
+      document.getElementById(playerSelection).classList.add('loseDisplay');
+      setTimeout(function(){ document.getElementById(playerSelection).classList.remove('loseDisplay')}, 1000);
     }
 }
 
@@ -135,13 +141,6 @@ function resetScore(){
     computerScoreDiv.textContent = computerScore.length
     playerScoreDiv.textContent = playerScore.length
 }
-
-function winDisplay(){
-    document.querySelector('#image').addEventListener('click', () => {
-    document.querySelector('#foo').classList.add('myClass');
-  }); 
-}
-
 
 
 elements.forEach(el => el.addEventListener('click', function(event) {
