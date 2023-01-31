@@ -66,8 +66,8 @@ divPunctuation.setAttribute('id', 'punctuation')
 div.append(scores)
 scores.append(playerScoreDiv, divPunctuation, computerScoreDiv)
 
-playerScoreDiv.textContent = "Player score " + 0
-computerScoreDiv.textContent = 0 + " Computer score"
+playerScoreDiv.textContent = "Player " + 0
+computerScoreDiv.textContent = 0 + " Computer "
 divPunctuation.textContent = ':'
 
 // functions
@@ -106,14 +106,17 @@ function game(){
 
     if(result == win){
       playerScore.push(1)
-      playerScoreDiv.textContent = playerScore.length
+      playerScoreDiv.textContent = "Player " + playerScore.length
       document.getElementById(playerSelection).classList.add('winDisplay');
       setTimeout(function(){ document.getElementById(playerSelection).classList.remove('winDisplay')}, 1000);
     } else if(result == lose){
       computerScore.push(1)
-      computerScoreDiv.textContent = computerScore.length
+      computerScoreDiv.textContent = computerScore.length + " Computer"
       document.getElementById(playerSelection).classList.add('loseDisplay');
       setTimeout(function(){ document.getElementById(playerSelection).classList.remove('loseDisplay')}, 1000);
+    } else {
+      document.getElementById(playerSelection).classList.add('drawDisplay');
+      setTimeout(function(){ document.getElementById(playerSelection).classList.remove('drawDisplay')}, 1000);
     }
 }
 
