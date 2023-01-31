@@ -62,14 +62,17 @@ scores.setAttribute('id', 'scores')
 
 let playerScoreDiv = document.createElement('div')
 let computerScoreDiv = document.createElement('div')
+let divPunctuation = document.createElement('div')
 playerScoreDiv.setAttribute('id', 'playerScore')
 computerScoreDiv.setAttribute('id', 'computerScore')
+divPunctuation.setAttribute('id', 'punctuation')
 
 div.append(scores)
-scores.append(playerScoreDiv, computerScoreDiv)
+scores.append(playerScoreDiv, divPunctuation, computerScoreDiv)
 
-playerScoreDiv.textContent = 0
-computerScoreDiv.textContent = 0
+playerScoreDiv.textContent = "Player score " + 0
+computerScoreDiv.textContent = 0 + " Computer score"
+divPunctuation.textContent = ':'
 
 // functions
 

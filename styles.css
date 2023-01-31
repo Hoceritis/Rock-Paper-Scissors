@@ -9,3 +9,36 @@
 [value|="paper"] {
     width: 50px;
 }
+
+#main-div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#button-div {
+    order: 2;
+    margin: 10px;
+}
+
+#message {
+    order: 3;
+    margin: 10px;
+}
+
+#scores{
+    order: 1;
+    margin-top: 70px;
+    display: flex;
+}
+
+#punctuation{
+}
+
+#computerScore {
+    margin-left: 10px;
+}
+
+#playerScore {
+    margin-right: 10px;
+}
