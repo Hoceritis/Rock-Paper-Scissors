@@ -72,12 +72,12 @@ modalContent.setAttribute('id','modalContent')
 
 let closeModal = document.createElement('span')
 closeModal.setAttribute('class','close')
-closeModal.textContent ='&times;'
+closeModal.textContent ='x'
 
 modalText = document.createElement('p')
 modalText.textContent = 'Some rules'
 
-div.append(modal)
+document.body.append(modal)
 modal.append(modalContent)
 modalContent.append(closeModal,modalText)
 
@@ -89,8 +89,8 @@ rulesButton.addEventListener('click', function(){
   modalJs.style.display = 'block'
 })
 
-rulesButton.addEventListener('click', function(){
-  closeModalBtn.style.display = 'block'
+closeModalBtn.addEventListener('click', function(){
+  modalJs.style.display = 'none'
 })
 
 window.addEventListener('click',function(event){
