@@ -53,6 +53,17 @@ let message = document.createElement('div')
 message.setAttribute('id','message')
 div.append(message)
 
+// create the rules button
+
+let rulesButton = document.createElement('button')
+rulesButton.setAttribute('id', 'rules')
+
+div.append(rulesButton)
+
+rulesButton.textContent = 'Rules'
+
+
+
 // game's logic
 
 const choices = ["rock", "paper", "scissors"]

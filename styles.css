@@ -100,3 +100,10 @@ body {
     font-weight: 700;
     font-size: xx-large;
 }
+
+#rules {
+    order: 4;
+    align-self: flex-end;
+    margin-top: 40px;
+    margin-right: 40px;
+}
