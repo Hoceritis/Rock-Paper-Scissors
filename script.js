@@ -207,12 +207,14 @@ function playerChoice(event) {
 
 function winner(playerScore, computerScore){
   if(playerScore.length === 5){
-    message.textContent = 'You won !'
-    resetScore()
+    buttonDiv.style.display = 'none'
+    newGameButton.style.display ='block'
+    message.textContent = 'Well play ! You won !'
     
   } else if (computerScore.length === 5){
-    message.textContent = 'You lose !'
-    resetScore()
+    buttonDiv.style.display = 'none'
+    newGameButton.style.display ='block'
+    message.textContent = 'Aah too bad, you lost this one !'
   }
 }
 

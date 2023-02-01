@@ -59,6 +59,7 @@ body {
 #scores{
     order: 1;
     margin-top: 60px;
+    margin-bottom: 20px;
     display: flex;
     font-weight: 500;
     font-size: x-large; 
@@ -116,18 +117,6 @@ body {
   width: 100px;
 }
 
-.button-43:hover {
-  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
-}
-
-@media (min-width: 768px) {
-  .button-43 {
-    padding: 1rem 2rem;
-  }
-}
-
-
-
  /* The Modal (background) */
  #modal {
     display: none;
@@ -167,4 +156,21 @@ body {
 
 #newGame {
     display: none;
+    order: 4;
+    background-image: linear-gradient(-180deg, #579494 0%, #255964 100%);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 1rem 1.75rem;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    order: 4;
+    margin-top: 40px;
+    margin-right: 40px;
+    width: 160px;
 }
