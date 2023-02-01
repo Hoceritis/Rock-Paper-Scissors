@@ -1,6 +1,19 @@
 // mettre les event listener en fin de doc ?
 // + Pointer vers le choix du lixk, plutot que l'user input"
 
+// create the header-div + game title
+
+let headerDiv = document.createElement('div')
+headerDiv.setAttribute('id','header')
+
+document.body.appendChild(headerDiv)
+
+let title = document.createElement('div')
+title.setAttribute('id','title')
+
+headerDiv.append(title)
+
+title.textContent = 'Rock Paper Scissors'
 
 //create the main div
 
