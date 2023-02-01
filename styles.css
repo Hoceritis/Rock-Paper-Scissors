@@ -63,9 +63,6 @@ body {
     font-size: x-large; 
 }
 
-#punctuation{
-}
-
 #computerScore {
     margin-left: 10px;
 }
@@ -116,7 +113,7 @@ body {
     left: 0;
     top: 0;
     width: 100%;
-    height: 80%;
+    height: 100%;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black + opacity */
   }
@@ -127,7 +124,8 @@ body {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    border-radius: 10px;
+    width: 40%;
   }
 
   .close {

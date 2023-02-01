@@ -75,11 +75,21 @@ closeModal.setAttribute('class','close')
 closeModal.textContent ='x'
 
 modalText = document.createElement('p')
-modalText.textContent = 'Some rules'
+modalText.textContent = 'Some rules :'
+
+modalText2 = document.createElement('p')
+modalText2.textContent = '_ Rock beats scissors, scissors beat paper, and paper beats rock.'
+
+modalText3 = document.createElement('p')
+modalText3.textContent = '_ The first to reach 5 points wins !'
+
+modalText4 = document.createElement('p')
+modalText4.textContent = 'GL HF !'
+
 
 document.body.append(modal)
 modal.append(modalContent)
-modalContent.append(closeModal,modalText)
+modalContent.append(closeModal,modalText, modalText2, modalText3, modalText4)
 
 let modalJs = document.getElementById('modal')
 let modalBtn = document.getElementById('rules')
