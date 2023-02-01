@@ -71,6 +71,13 @@ div.append(newGameButton)
 
 newGameButton.textContent = 'New game ?'
 
+newGameButton.addEventListener('click', function(){
+  buttonDiv.style.display = 'block'
+  newGameButton.style.display ='none'
+  message.textContent = ''
+  resetScore()
+})
+
 //modal
 
 let modal = document.createElement('div')
@@ -214,15 +221,15 @@ function winner(playerScore, computerScore){
   } else if (computerScore.length === 5){
     buttonDiv.style.display = 'none'
     newGameButton.style.display ='block'
-    message.textContent = 'Aah too bad, you lost this one !'
+    message.textContent = 'Aaah too bad, you lost this one !'
   }
 }
 
 function resetScore(){
     playerScore.length = 0;
     computerScore.length = 0;
-    computerScoreDiv.textContent = computerScore.length
-    playerScoreDiv.textContent = playerScore.length
+    playerScoreDiv.textContent = "Player " + 0
+    computerScoreDiv.textContent = 0 + " Computer "
 }
 
 
