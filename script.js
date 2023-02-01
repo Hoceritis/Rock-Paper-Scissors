@@ -62,7 +62,42 @@ div.append(rulesButton)
 
 rulesButton.textContent = 'Rules'
 
+//modal
 
+let modal = document.createElement('div')
+modal.setAttribute('id','modal')
+
+let modalContent = document.createElement('div')
+modalContent.setAttribute('id','modalContent')
+
+let closeModal = document.createElement('span')
+closeModal.setAttribute('class','close')
+closeModal.textContent ='&times;'
+
+modalText = document.createElement('p')
+modalText.textContent = 'Some rules'
+
+div.append(modal)
+modal.append(modalContent)
+modalContent.append(closeModal,modalText)
+
+let modalJs = document.getElementById('modal')
+let modalBtn = document.getElementById('rules')
+let closeModalBtn = document.getElementsByClassName('close')[0]
+
+rulesButton.addEventListener('click', function(){
+  modalJs.style.display = 'block'
+})
+
+rulesButton.addEventListener('click', function(){
+  closeModalBtn.style.display = 'block'
+})
+
+window.addEventListener('click',function(event){
+  if(event.target == modalJs){
+    modalJs.style.display = 'none'
+  }
+})
 
 // game's logic
 
