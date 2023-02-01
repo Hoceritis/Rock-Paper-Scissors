@@ -62,6 +62,15 @@ div.append(rulesButton)
 
 rulesButton.textContent = 'Rules'
 
+// new game button
+
+let newGameButton = document.createElement('button')
+newGameButton.setAttribute('id', 'newGame')
+
+div.append(newGameButton)
+
+newGameButton.textContent = 'New game ?'
+
 //modal
 
 let modal = document.createElement('div')
