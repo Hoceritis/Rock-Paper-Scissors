@@ -6,22 +6,21 @@ body {
     width: 100px;
     transition: all 0.2s ease-in-out;
     border-radius: 50%;
-    margin-right: 10px;
-    border: 3px solid white;
+    margin-right: 20px;
     padding: 4px;
 }
 
 [value|="rock"]:hover, [value|="scissors"]:hover, [value|="paper"]:hover {
-    border: 4px inset #50ffe1;
-    padding: 5px;
+    border: #50ffe1;
+    transform: scale(1.2);
+
 }
 
 [value|="scissors"] {
     width: 100px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
-    margin-left: 10px;
-    border: 3px solid white;
+    margin-left: 20px;
     padding: 4px;
 }
 
@@ -29,7 +28,6 @@ body {
     width: 100px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
-    border: 3px solid white;
     padding: 4px;
 }
 
