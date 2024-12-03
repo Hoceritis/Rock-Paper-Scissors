@@ -115,6 +115,11 @@ body {
   width: 100px;
 }
 
+#rules:hover{
+  transform: scale(1.1);
+  transition: all 0.4 ease-in-out;
+}
+
  /* The Modal (background) */
  #modal {
     display: none;
